@@ -10,36 +10,122 @@
 
       <div class="box-body">
     
-          <div class="form-group" *ngIf="shared.user.profile == 'TECHNICIAN'" >
+          <div class="form-group" >
            
-            <div class="col-sm-10">
-              <input type="text" 
-                     class="form-control" 
-                     id="inputtitle" 
-                     placeholder="title"
-                     name="title"
-                     [(ngModel)]="ticket.title"
-                     #title="ngModel"
-                     required
-                     >
-              <span class="help-block" *ngIf="title.invalid && title.dirty">Title is required</span>       
+            <div class="checkbox">
+
+              <label for="">
+
+                  <input type="checkbox" 
+                        id="inputassignedToMe" 
+                        name="assignedToMe"
+                        [(ngModel)]="assignedToMe"
+                        >
+                 <b>Assigned To Me</b>       
+              </label>
             </div>
           </div>
+
+          <br/>
+
+          <div class="form-group" >
+              <label for="inputnumber" class="col-sm-2 control-label">Number</label>
+              <div class="col-sm-10">
+                <input type="text" 
+                       class="form-control" 
+                       id="inputnumber" 
+                       name="number"
+                       [(ngModel)]="ticketFilter.number"
+                       >
+              </div>
+          </div>
+
+          <br/>
+
+          <div class="form-group" >
+                <label for="inputtitle" class="col-sm-2 control-label">Title</label>
+                <div class="col-sm-10">
+                  <input type="text" 
+                         class="form-control" 
+                         id="inputtitle" 
+                         name="title"
+                         [(ngModel)]="ticketFilter.title"
+                         >
+                </div>
+          </div>
+
+          <br/>
+
+          <div class="form-group" >
+              <label for="inputstatus" class="col-sm-2 control-label">status</label>
+              <div class="col-sm-10">
+                <select 
+                       class="form-control" 
+                       id="inputstatus" 
+                       name="status"
+                       [(ngModel)]="ticketFilter.status"
+                       style="width: 100%">
+                <option>New</option>
+                <option>Assigned</option>
+                <option>Resolved</option>
+                <option>Approved</option>
+                <option>Disapproved</option>
+                <option>Closed</option>
+                </select>       
+              </div>
+          </div>          
+
+          <br/>
+
+          <div class="form-group" >
+              <label for="inputpriority" class="col-sm-2 control-label">Priority</label>
+              <div class="col-sm-10">
+                <select 
+                       class="form-control" 
+                       id="inputpriority" 
+                       name="priority"
+                       [(ngModel)]="ticketFilter.priority"
+                       style="width: 100%">
+                <option>High</option>
+                <option>Normal</option>
+                <option>Low</option>
+                </select>       
+              </div>
+          </div>          
+
         </div>    
 
+    <div class="box-footer">
+        <button class="btn btn-info pull-right" (click)="cleanFilter()">Clear Filter</button>
+        <button style="margin-left: 10%" class="btn btn-info pull-right" (click)="filter()">Create</button>
+    </div>
     <div class="box-body">
       <table class="table table-bordered">
         <tr>
-          <th>Email</th>
-          <th>Profile</th>
-          <th style="width: 40px">&nbsp;</th>
+          <th>Number</th>
+          <th>Title</th>
+          <th>Priority</th>
+          <th>Status</th>
+          <th>Owner</th>
+          <th style="width: 40px" >&nbsp;</th>
+          <th style="width: 40px" >&nbsp;</th>
           <th style="width: 40px">&nbsp;</th>
         </tr>
-        <tr *ngFor="let user of listUser">
-          <td>{{user.email}}</td>
-          <td>{{user.profile}}</td>
-          <td><button class="btn btn-primary" (click)="edit(user.id)" >Edit</button></td>
-          <td><button class="btn btn-danger" (click)="delete(user.id)" >Delete</button></td>
+        <tr *ngFor="let ticket of listTicket">
+          <td>{{ ticket.number }}</td>
+          <td>{{ ticket.title }}</td>
+          <td>{{ ticket.priority }}</td>
+          <td>{{ ticket.status }}</td>
+          <td>{{ ticket.user.email }}</td>
+          <td >
+            <button class="btn btn-primary" (click)="edit(ticket.id)" >Edit</button>
+          </td>
+          <td >
+            <button class="btn btn-danger" (click)="delete(ticket.id)" >Delete</button>
+          </td>
+          <td>
+            <button class="btn btn-success" (click)="detail(ticket.id)" >Detail</button>
+          </td>
         </tr>
       </table>
     </div>
