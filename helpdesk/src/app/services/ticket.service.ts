@@ -20,6 +20,10 @@ export class TicketService {
     }  
   }
 
+  delete(id: string) {
+    return this.http.delete(`${HELP_DESK_API}/api/ticket/${id}`);
+  }
+
   findAll(page:number, count:number){
     return this.http.get(`${HELP_DESK_API}/api/ticket/${page}/${count}`);
   }

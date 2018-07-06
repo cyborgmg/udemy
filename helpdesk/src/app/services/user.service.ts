@@ -31,7 +31,7 @@ export class UserService {
     return this.http.get(`${HELP_DESK_API}/api/user/${id}`);
   }
 
-  delete(id:string){
+  delete(id: string) {
     return this.http.delete(`${HELP_DESK_API}/api/user/${id}`);
   }
 }

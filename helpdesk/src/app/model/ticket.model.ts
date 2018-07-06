@@ -1,18 +1,18 @@
-import {User} from './user.model'
+import {User} from './user.model';
 
-export class Ticket{
+export class Ticket {
 
     constructor(
-        public id:string,
-        public number:number,
-        public title:string,
-        public priority:string,
-        public imagem:string,
-        public status:string,
-        public user:User,
-        public assignedUser:User,
-        public data:string,
-        public changes:Array<string>
-    ){}
+        public id: string,
+        public number: number,
+        public title: string,
+        public priority: string,
+        public image: string,
+        public status: string,
+        public user: User,
+        public assignedUser: User,
+        public data: string,
+        public changes: Array<string>
+    ) {}
 
 }
