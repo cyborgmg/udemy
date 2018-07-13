@@ -1,5 +1,6 @@
 package com.klayrocha.helpdesk.api.service.impl;
 
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -97,7 +98,7 @@ public class TicketServiceImpl implements TicketService {
 	@Override
 	public Page<Ticket> filterRoleCustumer(int page, int cont, String title, String status, String priority, String userId) {
 		Pageable pages = new PageRequest(page, cont);
-		return ticketRepository.filterRoleCustumer(title, status, priority, userId, pages);
+		return ticketRepository.filterRoleCustumer(title, status, priority, new ObjectId(userId), pages);
 	}
 	
 }

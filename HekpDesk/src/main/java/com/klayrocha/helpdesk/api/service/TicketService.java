@@ -1,5 +1,6 @@
 package com.klayrocha.helpdesk.api.service;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 

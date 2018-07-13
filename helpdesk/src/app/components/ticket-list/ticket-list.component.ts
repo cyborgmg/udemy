@@ -98,7 +98,7 @@ export class TicketListComponent implements OnInit {
   }
 
   detail(id: string) {
-    this.route.navigate(['/tiket-detail', id]);
+    this.route.navigate(['/ticket-detail', id]);
   }
 
   setNextPage(event: any) {

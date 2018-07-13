@@ -8,6 +8,7 @@ import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.bind.BindResult;
 import org.springframework.data.domain.Page;
@@ -219,6 +220,8 @@ public class TicketController {
 				}
 			}else if(userRequest.getProfile().equals(ProfileEnum.ROLE_CUSTUMER)) {
 				//tickets = ticketService.findByParametersAndCurrUser(page, count, title, status, priority, userRequest.getId());
+				
+				//tickets = ticketService.filterRoleCustumer(page, count, title, status, priority, userRequest.getId());
 				tickets = ticketService.filterRoleCustumer(page, count, title, status, priority, userRequest.getId());
 			}
 			
