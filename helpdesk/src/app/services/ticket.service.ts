@@ -8,45 +8,45 @@ import { Ticket } from '../model/ticket.model';
 })
 export class TicketService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  createOrUpdate(ticket:Ticket){
-    if(ticket.id!=null && ticket.id!=''){
-      return this.http.put(`${HELP_DESK_API}/api/ticket`,ticket);
-    }else{
-      ticket.id=null;
-      ticket.status='New';
-      return this.http.post(`${HELP_DESK_API}/api/ticket`,ticket);
-    }  
+  createOrUpdate(ticket: Ticket) {
+    if (ticket.id !== null && ticket.id !== '') {
+      return this.http.put(`${HELP_DESK_API}/api/ticket`, ticket);
+    } else {
+      ticket.id = null;
+      ticket.status = 'New';
+      return this.http.post(`${HELP_DESK_API}/api/ticket`, ticket);
+    }
   }
 
   delete(id: string) {
     return this.http.delete(`${HELP_DESK_API}/api/ticket/${id}`);
   }
 
-  findAll(page:number, count:number){
+  findAll(page: number, count: number) {
     return this.http.get(`${HELP_DESK_API}/api/ticket/${page}/${count}`);
   }
 
-  findById(id:string){
+  findById(id: string) {
     return this.http.get(`${HELP_DESK_API}/api/ticket/${id}`);
   }
 
-  findByParams(page:number, count:number,assignedToMe:boolean,t:Ticket){
+  findByParams(page: number, count: number, assignedToMe: boolean, t: Ticket) {
 
-    t.number = t.number == null ? 0 : t.number;
-    t.title = t.title == null ? 'uninformed' : t.title;
-    t.status = t.status == null ? 'uninformed' : t.status;
-    t.priority = t.priority == null ? 'uninformed' : t.priority;
+    const number = t.number === null  ? 0 : t.number;
+    const title  = t.title === null || t.title === '' ? 'uninformed' : t.title;
+    const status = t.status === null || t.status === '' ? 'uninformed' : t.status;
+    const priority = t.priority === null || t.priority === '' ? 'uninformed' : t.priority;
 
-    return this.http.get(`${HELP_DESK_API}/api/ticket/${page}/${count}/${t.number}/${t.title}/${t.status}/${t.priority}/${assignedToMe}`);
+    return this.http.get(`${HELP_DESK_API}/api/ticket/${page}/${count}/${number}/${title}/${status}/${priority}/${assignedToMe}`);
   }
 
-  changeStatus(status:string, ticket:Ticket){
-    return this.http.put(`${HELP_DESK_API}/api/ticket/${ticket.id}/${status}`,ticket);
+  changeStatus(status: string, ticket: Ticket) {
+    return this.http.put(`${HELP_DESK_API}/api/ticket/${ticket.id}/${status}`, ticket);
   }
 
-  summary(){
+  summary() {
     return this.http.get(`${HELP_DESK_API}/api/ticket/summary`);
   }
 

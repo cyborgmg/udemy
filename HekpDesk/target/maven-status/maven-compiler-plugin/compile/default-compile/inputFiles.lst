@@ -7,8 +7,8 @@
 /home/cyborg/java/workspace/udemy/HekpDesk/src/main/java/com/klayrocha/helpdesk/api/filter/SimpleCORSFilter.java
 /home/cyborg/java/workspace/udemy/HekpDesk/src/main/java/com/klayrocha/helpdesk/api/security/service/JwtUserDetailsServiceImpl.java
 /home/cyborg/java/workspace/udemy/HekpDesk/src/main/java/com/klayrocha/helpdesk/api/service/impl/TicketServiceImpl.java
-/home/cyborg/java/workspace/udemy/HekpDesk/src/main/java/com/klayrocha/helpdesk/api/repository/ChangeStatusRepository.java
 /home/cyborg/java/workspace/udemy/HekpDesk/src/main/java/com/klayrocha/helpdesk/api/controller/UserController.java
+/home/cyborg/java/workspace/udemy/HekpDesk/src/main/java/com/klayrocha/helpdesk/api/repository/ChangeStatusRepository.java
 /home/cyborg/java/workspace/udemy/HekpDesk/src/main/java/com/klayrocha/helpdesk/api/security/jwt/JwtUser.java
 /home/cyborg/java/workspace/udemy/HekpDesk/src/main/java/com/klayrocha/helpdesk/api/enums/PriorityEnum.java
 /home/cyborg/java/workspace/udemy/HekpDesk/src/main/java/com/klayrocha/helpdesk/api/enums/ProfileEnum.java
@@ -25,5 +25,5 @@
 /home/cyborg/java/workspace/udemy/HekpDesk/src/main/java/com/klayrocha/helpdesk/api/security/jwt/JwtAuthenticationEntryPoint.java
 /home/cyborg/java/workspace/udemy/HekpDesk/src/main/java/com/klayrocha/helpdesk/api/repository/TicketRepository.java
 /home/cyborg/java/workspace/udemy/HekpDesk/src/main/java/com/klayrocha/helpdesk/api/service/impl/UserServiceImpl.java
-/home/cyborg/java/workspace/udemy/HekpDesk/src/main/java/com/klayrocha/helpdesk/api/dto/Summary.java
 /home/cyborg/java/workspace/udemy/HekpDesk/src/main/java/com/klayrocha/helpdesk/api/security/config/WebSecurityConfig.java
+/home/cyborg/java/workspace/udemy/HekpDesk/src/main/java/com/klayrocha/helpdesk/api/dto/Summary.java

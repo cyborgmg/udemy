@@ -218,7 +218,8 @@ public class TicketController {
 					tickets = ticketService.findByParameters(page, count, title, status, priority);
 				}
 			}else if(userRequest.getProfile().equals(ProfileEnum.ROLE_CUSTUMER)) {
-				tickets = ticketService.findByParametersAndCurrUser(page, count, title, status, priority, userRequest.getId());
+				//tickets = ticketService.findByParametersAndCurrUser(page, count, title, status, priority, userRequest.getId());
+				tickets = ticketService.filterRoleCustumer(page, count, title, status, priority, userRequest.getId());
 			}
 			
 		}

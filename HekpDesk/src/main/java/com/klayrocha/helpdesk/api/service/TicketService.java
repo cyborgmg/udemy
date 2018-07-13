@@ -32,4 +32,6 @@ public interface TicketService {
 	Iterable<Ticket> findAll();
 	
 	Page<Ticket> findByParametersAndAssignedUser(int page, int cont, String title, String status, String priority, String assignedUserId);
+
+	Page<Ticket> filterRoleCustumer(int page, int cont, String title, String status, String priority, String userId);
 }

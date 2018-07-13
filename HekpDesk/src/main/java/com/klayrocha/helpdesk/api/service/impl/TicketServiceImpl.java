@@ -94,4 +94,10 @@ public class TicketServiceImpl implements TicketService {
 		return ticketRepository.findTitleIgnoreCaseContainingAndStatusAndPriorityAndAssignedUserIdOrderByDate(title, status, priority, assignedUserId, pages);
 	}
 
+	@Override
+	public Page<Ticket> filterRoleCustumer(int page, int cont, String title, String status, String priority, String userId) {
+		Pageable pages = new PageRequest(page, cont);
+		return ticketRepository.filterRoleCustumer(title, status, priority, userId, pages);
+	}
+	
 }

@@ -73,11 +73,32 @@ export class TicketListComponent implements OnInit {
   }
 
   edit(id: string) {
-    this.route.navigate(['/list-new', id]);
+    this.route.navigate(['/ticket-new', id]);
+  }
+
+  delete(id: string) {
+    this.dialogService.confirm('Do you want to delete the ticket ?')
+    .then((canDelete: boolean) => {
+      if (canDelete) {
+        this.message = {};
+        this.ticketService.delete(id).subscribe((responseApi: ResponseApi) => {
+          this.showMessage({
+            type: 'success',
+            text: 'Record delete'
+          });
+          this.findAll(this.page, this.count);
+        }, err => {
+          this.showMessage({
+            type: 'error',
+            text: err['error']['errors'][0]
+          });
+        });
+      }
+    });
   }
 
   detail(id: string) {
-    this.route.navigate(['/list-detail', id]);
+    this.route.navigate(['/tiket-detail', id]);
   }
 
   setNextPage(event: any) {
