@@ -17,10 +17,13 @@ export class AuthGuard implements CanActivate {
         state: RouterStateSnapshot): Observable<boolean> | boolean {
 
         if (this.shared.isLoggedIn()) {
+            console.log(`esta logado ${this.shared.token}`);
             return true;
+        } else {
+            this.router.navigate(['/login']);
+            console.log(`não esta logado ${this.shared.token}`);
+            return false;
         }
-        this.router.navigate(['/login']);
-        return false;
     }
 
 }
